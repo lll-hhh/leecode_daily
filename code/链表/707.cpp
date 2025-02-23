@@ -10,7 +10,7 @@
 //     MyLinkedListNode(int x, MyLinkedListNode* next) : val(x), next(next) {}
 // };
 
-// // 定义链表管理类
+// // 定义链表管理jkl类
 // class MyLinkedList {
 // private:
 //     static MyLinkedListNode* head;
