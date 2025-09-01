@@ -1,0 +1,14 @@
+2025-09-01 12:33:27,610 - trainer - INFO - Trainer initialized with device: cpu
+2025-09-01 12:33:27,611 - trainer - INFO - Configuration: {'cgr_resolution': 64, 'routing_iterations': 3, 'primary_caps_num': 64, 'primary_caps_dim': 16, 'digit_caps_dim': 32, 'learning_rate': 0.0007, 'batch_size': 32, 'epochs': 50, 'lambda_recon': 0.0005, 'early_stopping_patience': 10, 'weight_decay': 0.0001}
+2025-09-01 12:33:27,611 - trainer - INFO - Starting direct training...
+2025-09-01 12:33:28,476 - trainer - INFO - Model built successfully!
+2025-09-01 12:33:28,476 - trainer - INFO - Total parameters: 12,544,128
+2025-09-01 12:33:28,476 - trainer - INFO - Trainable parameters: 12,544,128
+2025-09-01 12:33:28,476 - trainer - INFO - Preparing data...
+2025-09-01 12:33:28,480 - trainer - INFO - Data prepared: 32 training, 8 validation samples
+2025-09-01 12:33:30,742 - trainer - INFO - Epoch 1/2 | Time: 2.26s | Train Loss: 0.5495 | Train Acc: 0.4688 | Val Loss: 0.4051 | Val Acc: 0.6250 | LR: 0.000700
+2025-09-01 12:33:32,945 - trainer - INFO - Epoch 2/2 | Time: 2.20s | Train Loss: 0.4051 | Train Acc: 0.4688 | Val Loss: 0.4051 | Val Acc: 0.5000 | LR: 0.000700
+2025-09-01 12:33:32,945 - trainer - INFO - Early stopping at epoch 2
+2025-09-01 12:33:32,995 - trainer - INFO - Model saved to: ./models/caps_ac4c_model_20250901_123332.pth
+2025-09-01 12:33:32,995 - trainer - INFO - Training history saved to: ./logs/training_history_20250901_123332.json
+2025-09-01 12:33:32,996 - trainer - INFO - Training completed!
