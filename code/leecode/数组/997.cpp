@@ -1,34 +1,32 @@
-#include<bits/stdc++.h>
+#include <iostream>
+using namespace std;
+typedef long long ll;
 
-class Solution {
-public:
-    int findJudge(int n, std::vector<std::vector<int>>& trust) {
-        std::vector<int> judge(n+1);
-        for(int i=0;i<trust.size();i++){
-            judge[trust[i][0]]=-1;
-            if(judge[trust[i][1]]!=-1)
-                judge[trust[i][1]]++;
-        }
-        for(int i=1;i<n+1;i++){
-            if(judge[i]==n-1){
-                return i;
-            }
-        }
-        return -1;
-    }
-};
-int main (){
-    Solution s;
-    int p_num=0;
-    std::vector<std::vector<int>> trust;
-    std::cin>>p_num;
-    for(int i=0;i<p_num;i++){
-        std::vector<int> temp1;
-        int a,b;
-        std::cin>>a>>b;
-        temp1.push_back(a);
-        temp1.push_back(b);
-        trust.push_back(temp1);
-    }
-    std::cout<<s.findJudge(p_num,trust)<<std::endl;
+const int N = 1e5 + 10;
+int H[N], W[N];
+int main() {
+ int n, k;
+ cin >> n >> k;
+ int max_side = 0;
+ for (int i = 0; i < n; ++i) {
+ cin >> H[i] >> W[i];
+ max_side = max(max_side, min(H[i], W[i]));
+ }
+ int l = 1, r = max_side, ans = 0;
+ while (l <= r) {
+ int mid = (l + r) / 2;
+ ll cnt = 0;
+ for (int i = 0; i < n; ++i) {
+ cnt += (ll)(H[i] / mid) * (W[i] / mid);
+ if (cnt >= k) break; // 剪枝：提前结束
+ }
+ if (cnt >= k) {
+ ans = mid;
+ l = mid + 1;
+ } else {
+ r = mid - 1;
+ }
+ }
+ cout << ans << endl;
+ return 0;
 }
