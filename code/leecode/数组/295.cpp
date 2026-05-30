@@ -1,23 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
 class MedianFinder {
 public:
-    priority_queue<int, vector<int>, less<int>> queMin;
-    priority_queue<int, vector<int>, greater<int>> queMax;
-
+    priority_queue<int,vector<int>,less<int>> queMin;
+    priority_queue<int,vector<int>,greater<int>> queMax;
     MedianFinder() {}
 
     void addNum(int num) {
-        if (queMin.empty() || num <= queMin.top()) {
-            queMin.push(num);
-            if (queMax.size() + 1 < queMin.size()) {
-                queMax.push(queMin.top());
-                queMin.pop();
-            }
-        } else {
+        if(queMin.size()==queMax.size()){
             queMax.push(num);
-            if (queMax.size() > queMin.size()) {
-                queMin.push(queMax.top());
-                queMax.pop();
-            }
+            queMin.push(queMax.top());
+            queMax.pop();
+        }
+        else{
+            queMin.push(num);
+            queMax.push(queMin.top());
+            queMin.pop();
         }
     }
 
